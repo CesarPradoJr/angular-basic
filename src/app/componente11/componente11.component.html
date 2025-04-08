@@ -1,0 +1,50 @@
+<form [formGroup]="formulario">
+  @if(formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
+    <div class="alert alert-danger">Campo nome é obrigatório</div>
+  }
+  @if(formulario.get('nome').hasError('minlength') && formulario.get('nome').touched) {
+    <div class="alert alert-danger">Campo nome precisa ter pelo menos 3 caracteres</div>
+  }
+  <input type="text" formControlName="nome" placeholder="Nome" class="form-control">
+  @if(formulario.get('idade').hasError('required') && formulario.get('idade').touched) {
+    <div class="alert alert-danger">Campo idade é obrigatório</div>
+  }
+  @if(formulario.get('idade').hasError('min') && formulario.get('idade').touched) {
+    <div class="alert alert-danger">Campo idade não aceita números menores que 0!</div>
+  }
+  @if(formulario.get('idade').hasError('max') && formulario.get('idade').touched) {
+    <div class="alert alert-danger">Campo idade não aceita números maiores que 120!</div>
+  }
+  <input type="number" formControlName="idade" placeholder="Idade" class="form-control">
+  @if(formulario.get('cidade').hasError('required') && formulario.get('cidade').touched) {
+    <div class="alert alert-danger">Campo cidade é obrigatório</div>
+  }
+  @if(formulario.get('cidade').hasError('minlength') && formulario.get('cidade').touched) {
+    <div class="alert alert-danger">Campo cidade precisa ter pelo menos 3 caracteres</div>
+  }
+  <input type="text" formControlName="cidade" placeholder="Cidade" class="form-control">
+
+  @if(btnCadastrar) {
+    <input type="button" value="Cadastrar" class="btn btn-primary" [disabled]="formulario.invalid">
+  }@else {
+    <input type="button" value="Alterar" class="btn btn-primary" [disabled]="formulario.invalid">
+    <input type="button" value="Remover" class="btn btn-primary">
+    <input type="button" value="Cancelar" class="btn btn-primary">
+  }
+
+
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Cidade</th>
+      <th>Selecionar</th>
+    </tr>
+  </thead>
+
+  <body></body>
+</table>

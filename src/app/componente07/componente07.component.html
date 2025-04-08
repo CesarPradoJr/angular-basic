@@ -1,0 +1,8 @@
+<p [ngStyle]="{'color': condicao ? 'green': 'red'}">componente07 works!</p>
+
+<ul>
+  <li *ngFor="let item of lista" [ngStyle]="{'color' : item==='Aprovado' ? 'green' : 'red'}">{{item}}</li>
+</ul>
+<ul>
+  <li *ngFor="let l of lista" [ngClass]="l == 'Aprovado' ? 'fonteVerde' : 'fonteVermelha'">{{l}}</li>
+</ul>
